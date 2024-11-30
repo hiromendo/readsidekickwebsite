@@ -9,7 +9,7 @@ export default async function Page() {
   return (
     <>
       <HeroSection />
-      <ClientSection />
+      {/* <ClientSection />
       <SphereMask />
       <PricingSection />
       <CallToActionSection />
@@ -20,7 +20,7 @@ export default async function Page() {
         size={0.05}
         staticity={40}
         color={"#ffffff"}
-      />
+      /> */}
     </>
   );
 }
