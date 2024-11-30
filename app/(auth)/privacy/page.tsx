@@ -9,40 +9,55 @@ export const metadata: Metadata = {
   title: "ReadSidekick",
   description: "Privacy Policy",
 };
+const faqItems = [
+  {
+    question: "1. Introduction",
+    answer:
+      "This page describes the Privacy Policy that applies to all information collected or submitted when you install or use Read Sidekick. Read Sidekick is owned and operated by Wabi (referred to herein as “we”, “us”, or “our”). We take the protection of your personal data very seriously and will always offer you Read Sidekick and its functionality with your privacy in mind.",
+  },
+  {
+    question: "2. Handling user data with Read Sidekick",
+    answer:
+      "To provide the reading functions, Read Sidekick retrieves the input/selected text and page URLs and sends the request to OpenAI’s API. Please refer to the privacy policy of OpenAI. We do not access/collect any of these data.",
+  },
+  {
+    question: "3. External service",
+    answer:
+      "Read Sidekick includes links to external sites. When accessing external sites, the privacy policy of each site is applied.",
+  },
+  {
+    question: "4. Contact us",
+    answer:
+      "If you have questions about this Privacy Policy, please contact us at the address below: Email: hello@readsidekick.com",
+  },
+  {
+    question: "5. Changes to Privacy Policy",
+    answer:
+      "We may update this Privacy Policy and when we do, we will also revise the “Effective Date” at the top of the Privacy Policy.",
+  },
+];
 
 export default function LoginPage() {
   return (
-    <div className="container flex h-screen w-screen flex-col items-center justify-center">
-      <Link
-        href="/"
-        className={cn(
-          buttonVariants({ variant: "ghost" }),
-          "absolute left-4 top-4 md:left-8 md:top-8"
-        )}
-      >
-        <>
-          <ChevronLeft className="mr-2 h-4 w-4" />
-          Back
-        </>
-      </Link>
-      <div className="mx-auto flex w-full flex-col justify-center gap-6 sm:w-[350px]">
-        <div className="flex flex-col gap-2 text-center">
-          {/* <Icons.logo className="mx-auto h-6 w-6" /> */}
-          <h1 className="text-2xl font-semibold tracking-tight">
-            Welcome back
-          </h1>
-          <p className="text-sm text-muted-foreground">Login to your account</p>
-        </div>
-        <UserAuthForm />
-        <p className="px-8 text-center text-sm text-muted-foreground">
-          <Link
-            href="/signup"
-            className="hover:text-brand underline underline-offset-4"
-          >
-            Don&apos;t have an account? Sign Up
-          </Link>
-        </p>
+    <section id="faq">
+    <div className="container px-4 md:px-6 py-12 md:py-24 lg:py-32">
+      <div className="text-center space-y-4 py-6 mx-auto">
+        <h2 className="text-[14px] text-primary font-mono font-medium tracking-tight">
+          Effective Date: November 29, 2024
+        </h2>
+        <h4 className="text-[42px] font-medium mb-2 text-balance max-w-3xl mx-auto tracking-tighter">
+          Privacy Policy
+        </h4>
+      </div>
+      <div className="grid gap-8 md:grid-cols-1 lg:gap-12 max-w-5xl mx-auto">
+        {faqItems.map((item, index) => (
+          <div key={index} className="space-y-2">
+            <h3 className="text-lg font-medium">{item.question}</h3>
+            <p className="text-muted-foreground">{item.answer}</p>
+          </div>
+        ))}
       </div>
     </div>
+  </section>
   );
 }
