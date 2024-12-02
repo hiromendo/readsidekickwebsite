@@ -23,6 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <GoogleTagManager gtmId="G-R9GHTBMSCQ" />
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
@@ -38,7 +39,6 @@ export default function RootLayout({
           <Toaster />
         </ThemeProvider>
       </body>
-      <GoogleTagManager gtmId="G-R9GHTBMSCQ" />
     </html>
   );
 }
