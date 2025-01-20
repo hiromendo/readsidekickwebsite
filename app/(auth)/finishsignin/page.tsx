@@ -5,12 +5,38 @@ import { ChevronLeft } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
 
+import {
+  isSignInWithEmailLink,
+  signInWithEmailLink,
+  getAuth,
+} from "firebase/auth";
+import { initFirebase } from "/Users/hiroshi/ReadSideKickWebsite/readsidekickwebsite/app/firebase";
+
+
+
+const app = initFirebase();
+const auth = getAuth(app);
+
+if (isSignInWithEmailLink(auth, window.location.href)) {
+  const email = window.localStorage.getItem("emailForSignIn") 
+                || window.prompt("Please provide your email");
+  if (email) {
+    signInWithEmailLink(auth, email, window.location.href)
+      .then(userCredential => {
+        // User is signed in at https://myapp.com
+        // Maybe store tokens or show a success message
+      })
+      .catch(console.error);
+  }
+}
+
+
 export const metadata: Metadata = {
-  title: "Sign Up | Read Sidekick",
-  description: "Sign Up for Read Sidekick",
+  title: "Login | Magic UI",
+  description: "Login to your account",
 };
 
-export default function SignUpPage() {
+export default function LoginPage() {
   return (
     <div className="container flex h-screen w-screen flex-col items-center justify-center">
       <Link
@@ -29,21 +55,19 @@ export default function SignUpPage() {
         <div className="flex flex-col gap-2 text-center">
           {/* <Icons.logo className="mx-auto h-6 w-6" /> */}
           <h1 className="text-2xl font-semibold tracking-tight">
-            Welcome to Read Sidekick
+            Welcome back
           </h1>
-          <p className="text-sm text-muted-foreground">
-            Sign up for an account
-          </p>
+          <p className="text-sm text-muted-foreground">Login to your account</p>
         </div>
-        <UserAuthForm />
-        <p className="px-8 text-center text-sm text-muted-foreground">
+        {/* <UserAuthForm /> */}
+        {/* <p className="px-8 text-center text-sm text-muted-foreground">
           <Link
-            href="/signin"
+            href="/signup"
             className="hover:text-brand underline underline-offset-4"
           >
-            Already have an account? Sign In
+            Don&apos;t have an account? Sign Up
           </Link>
-        </p>
+        </p> */}
       </div>
     </div>
   );

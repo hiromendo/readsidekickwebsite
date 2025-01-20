@@ -24,6 +24,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <GoogleTagManager gtmId="G-R9GHTBMSCQ" />
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-R9GHTBMSCQ"></script>
+
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
