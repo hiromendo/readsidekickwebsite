@@ -7,7 +7,7 @@ import {
     getAuth,
     onAuthStateChanged,
 } from "firebase/auth";
-import { initFirebase } from "/Users/hiroshi/ReadSideKickWebsite/readsidekickwebsite/app/firebase";
+import { initFirebase } from "@/app/firebase";
 
 export default function LoginClient() {
     useEffect(() => {
